@@ -11,8 +11,7 @@
     <groupId>edu.penzgtu</groupId>
     <artifactId>shopsandshopkeepers</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>LabOne</name>
-    <description>Shops And Shopkeepers project for Spring Boot</description>
+    <name>Lab</name>
     <properties>
         <java.version>17</java.version>
     </properties>

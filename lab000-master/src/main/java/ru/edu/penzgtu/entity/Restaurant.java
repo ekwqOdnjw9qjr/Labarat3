@@ -2,6 +2,7 @@ package ru.edu.penzgtu.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,27 +17,27 @@ import java.util.List;
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-@Table(name = "song")
-public class Song {
+@Table(name = "restaurant")
+public class Restaurant {
     @Id
     @GeneratedValue
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "name",nullable = false,length = 100)
     private String name;
 
-    @Column(name = "language",nullable = false)
-    private String language;
+    @Column(name = "country",nullable = false,length = 100)
+    private String country;
 
-    @Column(name = "genre",nullable = false)
-    private String genre;
+    @Column(name = "openingDate")
+    @Positive
+    private Long openingDate;
 
-    @Column(name = "local_date_time")
+    @Column(name = "local_date_and_time")
     @NotNull(message = "Дата и время не должны быть пустыми")
     private LocalDateTime localDateTime;
 
-    @ManyToOne
-    @JoinColumn(name = "musician_id")
-    private Musician musician;
+    @OneToMany(mappedBy = "restaurant",fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, orphanRemoval = true)
+    private List<Cook> cook;
 }

@@ -12,16 +12,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 title = "PenzGTU Java Lab API",
                 description = "API for labs", version = "1.0.0",
                 contact = @Contact(
-                        name = "Ilya Tyulyaev",
-                        email = "abcdfgh@gmail.com"
+                        name = "Nikita Dudchenko",
+                        email = "qwertyuiop@gmail.com"
                 )
         )
 
 )
 @SpringBootApplication
-public class Application {
+public class MainApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(MainApplication.class, args);
     }
 
 

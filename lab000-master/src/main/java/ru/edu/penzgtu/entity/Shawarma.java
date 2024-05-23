@@ -9,37 +9,36 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
 @Entity
-@Table(name = "album")
-public class Album {
+@Table(name = "shawarma")
+public class Shawarma {
     @Id
     @GeneratedValue
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name",nullable = false)
+    @Column(name = "name",nullable = false,length = 100)
     private String name;
 
-    @Column(name = "releaseDate")
+    @Column(name = "price")
     @Positive
-    private Long releaseDate;
+    private Long price;
 
-    @Column(name = "local_date_time")
+    @Column(name = "size")
+    @Positive
+    private Long size;
+
+    @Column(name = "local_date_and_time")
     @NotNull(message = "Дата и время не должны быть пустыми")
     private LocalDateTime localDateTime;
 
-    @Column(name = "numberOfSongs")
-    @Positive
-    private Long numberOfSongs;
-
     @ManyToOne
-    @JoinColumn(name = "label_id")
-    private Label label;
+    @JoinColumn(name = "shawarmaStand_id")
+    private ShawarmaStand shawarmaStand;
 
 }
